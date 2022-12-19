@@ -19,7 +19,7 @@ class LoginPages extends StatelessWidget {
                     fit: BoxFit.fill)
             ),
           ),
-          Padding(padding:
+          const Padding(padding:
           EdgeInsetsDirectional.fromSTEB(0, 40, 0, 610),
             child: Text('welcomen!', style: TextStyle(color: SeriesAppColor.white, fontSize: 30,),),
           ),
@@ -39,10 +39,10 @@ class LoginPages extends StatelessWidget {
                   children: <Widget>[
                     Row(),
                     TextFormField(
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: SeriesAppColor.secundary,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Name',
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
@@ -54,10 +54,10 @@ class LoginPages extends StatelessWidget {
                       ),
                     ),
                     TextFormField(
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: SeriesAppColor.secundary,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: 'Password',
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -68,7 +68,7 @@ class LoginPages extends StatelessWidget {
                           hintStyle: TextStyle(color: SeriesAppColor.secundary)
                       ),
                     ),
-                    BtnAmarillo(
+                    const BtnAmarillo(
                         text: 'Login In', color: SeriesAppColor.white)
                   ],
                 ),
