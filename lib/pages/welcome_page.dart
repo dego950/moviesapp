@@ -36,6 +36,7 @@ class WelcomePage extends StatelessWidget {
                       child: BtnAmarillo(
                         color: SeriesAppColor.primary,
                         text: 'Sing Up',
+                        ruta: '',
                       ),
                     ),
                     Padding(padding:
@@ -43,6 +44,7 @@ class WelcomePage extends StatelessWidget {
                       child: BtnAmarillo(
                         color: SeriesAppColor.white,
                         text: 'Log In',
+                        ruta: 'login',
                       ),
                     ),
                     Padding(padding:

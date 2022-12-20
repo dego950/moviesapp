@@ -42,7 +42,6 @@ class SeriesProvider extends ChangeNotifier{
 
     // Await the http get response, then decode the json-formatted response.
     final responseTopRated = await http.get(url);
-    print(responseTopRated.body);
     final nowTopRatedSeries = TopRatedResponse.fromJson(responseTopRated.body);
     this.topRatedSeries = nowTopRatedSeries.results;
     notifyListeners();
