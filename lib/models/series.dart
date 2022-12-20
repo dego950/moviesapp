@@ -38,6 +38,13 @@ class Series {
     return 'https://via.placeholder.com/300';
   }
 
+  get fullBackdropPath{
+    if(this.backdropPath != null){
+      return 'https://image.tmdb.org/t/p/w500${ this.backdropPath }';
+    }
+    return 'https://via.placeholder.com/300';
+  }
+
   factory Series.fromJson(String str) => Series.fromMap(json.decode(str));
 
   factory Series.fromMap(Map<String, dynamic> json) => Series(

@@ -32,8 +32,8 @@ class SeriesSlider extends StatelessWidget {
                       child: Column(
                         children: [
                           GestureDetector(
-                            onTap: () => Navigator.pushNamed(context, '/seriesDetails',
-                                arguments: 'mo'),
+                            onTap: () => Navigator.pushNamed(context, 'seriesDetails',
+                                arguments: serie),
                             child: FadeInImage(
                               height: 190,
                               width: 130,

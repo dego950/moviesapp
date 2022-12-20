@@ -56,8 +56,8 @@ class _SeriesPoster extends StatelessWidget {
               height: double.infinity,
               padding: EdgeInsets.all(3),
               child: GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/seriesDetails',
-                    arguments: 'mo'),
+                onTap: () => Navigator.pushNamed(context, 'seriesDetails',
+                    arguments: series),
                 child: FadeInImage(
                   height: 190,
                   width: 130,
@@ -80,7 +80,7 @@ class _SeriesPoster extends StatelessWidget {
                     maxLines: 1,
                     style: TextStyle(color: SeriesAppColor.white,fontSize: 18),),
                   RaintingBar(),
-                  Text('subtitulo', style: TextStyle(color: SeriesAppColor.secundary, fontSize: 14),),
+                  Text('Popularity: ${series.popularity}', style: TextStyle(color: SeriesAppColor.secundary, fontSize: 14),),
                   Container(
                     child: Row(
                       children: [
