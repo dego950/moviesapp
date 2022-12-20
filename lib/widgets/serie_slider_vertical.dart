@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:moviesapp/constants/theme.dart';
+import 'package:moviesapp/models/series.dart';
 import 'package:moviesapp/widgets/raintingBar.dart';
 
 class SerieSliderVertical extends StatelessWidget {
-  const SerieSliderVertical({Key? key}) : super(key: key);
+  final List<Series> series;
+
+  const SerieSliderVertical({super.key, required this.series});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +23,8 @@ class SerieSliderVertical extends StatelessWidget {
           Expanded(
               child: ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: 20,
-                  itemBuilder: (_, int index) => _SeriesPoster()))
+                  itemCount: series.length,
+                  itemBuilder: (_, int index) => _SeriesPoster(series: series[index])))
         ],
       ),
     );
@@ -29,7 +32,9 @@ class SerieSliderVertical extends StatelessWidget {
 }
 
 class _SeriesPoster extends StatelessWidget {
-  const _SeriesPoster({Key? key}) : super(key: key);
+
+  const _SeriesPoster({required this.series});
+  final Series series;
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +58,11 @@ class _SeriesPoster extends StatelessWidget {
               child: GestureDetector(
                 onTap: () => Navigator.pushNamed(context, '/seriesDetails',
                     arguments: 'mo'),
-                child: const FadeInImage(
+                child: FadeInImage(
                   height: 190,
                   width: 130,
                   placeholder: NetworkImage('https://via.placeholder.com/300'),
-                  image: NetworkImage('https://via.placeholder.com/300'),
+                  image: NetworkImage(series.fullPosterImg),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -69,7 +74,11 @@ class _SeriesPoster extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text('Serie 1', style: TextStyle(color: SeriesAppColor.white,fontSize: 18),),
+                  Text(this.series.name,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(color: SeriesAppColor.white,fontSize: 18),),
                   RaintingBar(),
                   Text('subtitulo', style: TextStyle(color: SeriesAppColor.secundary, fontSize: 14),),
                   Container(

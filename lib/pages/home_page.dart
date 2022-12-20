@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:moviesapp/constants/theme.dart';
+import 'package:moviesapp/providers/series_provider.dart';
 import 'package:moviesapp/widgets/serie_slider.dart';
 import 'package:moviesapp/widgets/serie_slider_vertical.dart';
+import 'package:provider/provider.dart';
+
  class HomePages extends StatelessWidget {
    const HomePages({Key? key}) : super(key: key);
 
    @override
    Widget build(BuildContext context) {
+     final seriesProvider = Provider.of<SeriesProvider>(context);
+
      return Container(
        width: double.infinity,
        height: double.infinity,
@@ -23,7 +28,7 @@ import 'package:moviesapp/widgets/serie_slider_vertical.dart';
                    style: TextStyle(color: SeriesAppColor.white, fontSize: 20, fontWeight: FontWeight.bold),
                  ),
              ),
-             SeriesSlider(),
+             SeriesSlider(series: seriesProvider.onDisplatSeries),
              Container(
                margin: EdgeInsets.only(bottom: 12,top: 20),
                child: Row(
@@ -50,7 +55,9 @@ import 'package:moviesapp/widgets/serie_slider_vertical.dart';
                      fontWeight: FontWeight.bold)
                  ,),
              ),
-             SerieSliderVertical(),
+             SerieSliderVertical(
+               series: seriesProvider.topRatedSeries,
+             ),
            ],
          ),
        )
