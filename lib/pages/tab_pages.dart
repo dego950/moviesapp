@@ -28,7 +28,8 @@ class _TabPagesState extends State<TabPages> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Home'),
-          elevation: 0,
+          centerTitle: true,
+          elevation: 2,
           backgroundColor: SeriesAppColor.black,
           actions: [
             IconButton(onPressed: (){}, icon: Icon(Icons.settings))
@@ -36,6 +37,7 @@ class _TabPagesState extends State<TabPages> {
         ),
       body: _paginas[_paginaActual],
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 3,
         onTap: (index){
           setState(() {
             _paginaActual = index;
