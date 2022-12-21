@@ -53,7 +53,7 @@ class _SeriesPoster extends StatelessWidget {
                 height: 290,
                 width: 280,
                 placeholder: NetworkImage('https://via.placeholder.com/300'),
-                image: NetworkImage(series.fullPosterImg),
+                image: NetworkImage(series.fullBackdropPath),
                 fit: BoxFit.cover,
               ),
             ),

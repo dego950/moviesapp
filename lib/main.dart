@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'SeriesApp',
-      initialRoute: 'tabPages',
+      initialRoute: 'welcome',
       routes: appRoutes,
     );
   }
