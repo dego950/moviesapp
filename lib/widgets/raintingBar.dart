@@ -32,7 +32,7 @@ class _RaintingBarState extends State<RaintingBar> {
               color: Colors.amber,
             ),
             itemCount: 5,
-            itemSize: 3,
+            itemSize: 15,
             unratedColor: Colors.amber.withAlpha(10),
             direction: _isVertical ? Axis.vertical : Axis.horizontal,
           ),

@@ -69,40 +69,43 @@ class _SeriesPoster extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.all(15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(this.series.name,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: TextStyle(color: SeriesAppColor.white,fontSize: 18),),
-                  RaintingBar(),
-                  Text('Popularity: ${series.popularity}', style: TextStyle(color: SeriesAppColor.secundary, fontSize: 14),),
-                  Container(
-                    child: Row(
-                      children: [
-                        ElevatedButton(
-                          child: Container(
-                            width: 74,
-                            height: 12,
-                            child: const Center(
-                              child: Text('whatch now', style: TextStyle(color: SeriesAppColor.black, fontSize: 12),),
+              child: Container(
+                width: 190,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(this.series.name,
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: TextStyle(color: SeriesAppColor.white,fontSize: 18),),
+                    RaintingBar(),
+                    Text('Popularity: ${series.popularity}', style: TextStyle(color: SeriesAppColor.secundary, fontSize: 14),),
+                    Container(
+                      child: Row(
+                        children: [
+                          ElevatedButton(
+                            child: Container(
+                              width: 74,
+                              height: 12,
+                              child: const Center(
+                                child: Text('whatch now', style: TextStyle(color: SeriesAppColor.black, fontSize: 12),),
+                              ),
+                            ),
+                            onPressed: (){},
+                            style: ElevatedButton.styleFrom(
+                              elevation: 2,
+                              backgroundColor: SeriesAppColor.primary,
+                              shape: StadiumBorder(),
                             ),
                           ),
-                          onPressed: (){},
-                          style: ElevatedButton.styleFrom(
-                            elevation: 2,
-                            backgroundColor: SeriesAppColor.primary,
-                            shape: StadiumBorder(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ],

@@ -46,7 +46,7 @@ class SeriesSlider extends StatelessWidget {
                           Text(
                             serie.name,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
+                            maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: SeriesAppColor.white),
                           ),
