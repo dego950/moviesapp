@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:moviesapp/models/series.dart';
+import 'package:moviesapp/models/series_ariringToday_response.dart';
 import 'package:moviesapp/models/series_response.dart';
 import 'package:moviesapp/models/series_topRated_response.dart';
 
@@ -12,11 +13,13 @@ class SeriesProvider extends ChangeNotifier{
 
   List<Series> onDisplatSeries =[];
   List<Series> topRatedSeries = [];
+  List<Series> airingTodatySeries = [];
 
   SeriesProvider(){
     print('Series App provider inicializado');
     getOnDisplaySeries();
     getSeriesTopRated();
+    getSeriesAirindToday();
   }
 
   getOnDisplaySeries() async{
@@ -44,6 +47,21 @@ class SeriesProvider extends ChangeNotifier{
     final responseTopRated = await http.get(url);
     final nowTopRatedSeries = TopRatedResponse.fromJson(responseTopRated.body);
     this.topRatedSeries = nowTopRatedSeries.results;
+    notifyListeners();
+
+  }
+
+  getSeriesAirindToday() async{
+    var url = Uri.https(_baseUrl, '/3/tv/airing_today', {
+      'api_key': _apyKey,
+      'language': _lanhuage,
+      'page': '1'
+    });
+
+    // Await the http get response, then decode the json-formatted response.
+    final responseTopRated = await http.get(url);
+    final nowAiringTodaySeries = AiringToday.fromJson(responseTopRated.body);
+    this.airingTodatySeries = nowAiringTodaySeries.results;
     notifyListeners();
 
   }

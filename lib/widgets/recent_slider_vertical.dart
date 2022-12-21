@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:moviesapp/constants/theme.dart';
+import 'package:moviesapp/models/series.dart';
 
 class RecentSliderVertical extends StatelessWidget {
-  const RecentSliderVertical({Key? key}) : super(key: key);
+  final List<Series> series;
+
+  const RecentSliderVertical({super.key, required this.series});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +22,8 @@ class RecentSliderVertical extends StatelessWidget {
           Expanded(
               child: ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: 20,
-                  itemBuilder: (_, int index) => _SeriesPoster()))
+                  itemCount: series.length,
+                  itemBuilder: (_, int index) => _SeriesPoster(series: series[index],)))
         ],
       ),
     );
@@ -28,7 +31,9 @@ class RecentSliderVertical extends StatelessWidget {
 }
 
 class _SeriesPoster extends StatelessWidget {
-  const _SeriesPoster({Key? key}) : super(key: key);
+  final Series series;
+
+  const _SeriesPoster({super.key, required this.series});
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +48,12 @@ class _SeriesPoster extends StatelessWidget {
             padding: EdgeInsets.all(3),
             child: GestureDetector(
               onTap: () => Navigator.pushNamed(context, 'seriesDetails',
-                  arguments: 'series'),
+                  arguments: series),
               child: FadeInImage(
                 height: 290,
                 width: 280,
                 placeholder: NetworkImage('https://via.placeholder.com/300'),
-                image: NetworkImage('https://via.placeholder.com/300'),
+                image: NetworkImage(series.fullPosterImg),
                 fit: BoxFit.cover,
               ),
             ),
@@ -56,11 +61,19 @@ class _SeriesPoster extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Text('titulo',style: TextStyle(color: SeriesAppColor.white, fontWeight: FontWeight.bold, fontSize: 34),),
+          Text(
+            series.name,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: SeriesAppColor.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 34),),
           SizedBox(
             height: 5,
           ),
-          Text('titulo',style: TextStyle(color: SeriesAppColor.secundary, fontSize: 20),),
+          Text('Popularity ${series.popularity}',style: TextStyle(color: SeriesAppColor.secundary, fontSize: 20),),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
